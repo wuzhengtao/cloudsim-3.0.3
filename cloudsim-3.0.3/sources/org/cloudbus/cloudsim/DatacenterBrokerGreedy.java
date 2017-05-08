@@ -7,7 +7,6 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 
 	public DatacenterBrokerGreedy(String name) throws Exception {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -27,9 +26,9 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 			 */
 			for (int j = 0; j < vmNum; j++) {
 				time[i][j] = (double) cloudletList.get(i).getCloudletLength() / vmList.get(j).getMips();
-				// System.out.print(time[i][j]+" "); //For test
+//				 System.out.print(time[i][j]+" "); //For test
 			}
-			// System.out.println(); //For test
+//			 System.out.println(); //For test
 		}
 		double[] vmLoad = new double[vmNum];
 		int[] vmTasks = new int[vmNum]; // The number of tasks running on the
@@ -41,6 +40,7 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 		//将MI最大的cloudlet分配给MIPS最大的vm
 		vmLoad[vmNum - 1] = time[0][vmNum - 1];
 		vmTasks[vmNum - 1] = 1;
+		System.out.println("0分配给：4");
 		cloudletList.get(0).setVmId(vmList.get(vmNum - 1).getId());
 		for (int i = 1; i < cloudletNum; i++) {
 			minLoad = vmLoad[vmNum - 1] + time[i][vmNum - 1];
@@ -62,6 +62,7 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 			vmLoad[idx] += time[i][idx];
 			vmTasks[idx]++;
 			cloudletList.get(i).setVmId(vmList.get(idx).getId());
+			System.out.println(i+"分配给："+idx);
 		}
 	}
 

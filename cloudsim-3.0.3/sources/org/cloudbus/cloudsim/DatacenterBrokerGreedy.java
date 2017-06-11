@@ -40,7 +40,7 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 		//将MI最大的cloudlet分配给MIPS最大的vm
 		vmLoad[vmNum - 1] = time[0][vmNum - 1];
 		vmTasks[vmNum - 1] = 1;
-		System.out.println("0分配给：4");
+		System.out.println("0分配给："+(vmNum-1));
 		cloudletList.get(0).setVmId(vmList.get(vmNum - 1).getId());
 		for (int i = 1; i < cloudletNum; i++) {
 			minLoad = vmLoad[vmNum - 1] + time[i][vmNum - 1];
@@ -64,6 +64,13 @@ public class DatacenterBrokerGreedy extends DatacenterBroker {
 			cloudletList.get(i).setVmId(vmList.get(idx).getId());
 			System.out.println(i+"分配给："+idx);
 		}
+		double max=0;
+		for(int k=0;k<vmNum;k++){
+			if(vmLoad[k]>max){
+				max=vmLoad[k];
+			}
+		}
+		System.out.println("贪心算法最优路径长度为："+max);
 	}
 
 	// Cloudlet根据MI降序排列

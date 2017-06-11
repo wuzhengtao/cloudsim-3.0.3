@@ -38,10 +38,7 @@ public class MyGreedyTest {
 		
 		int vmid=0;
 		int []mipss=new int[]{278,289,132,209,286};
-//		int []mipss=new int[numVm];
-//		for(int i=0;i<numVm;i++){
-//			mipss[i]=(int)(Math.random()*200+100);
-//		}
+		
 		long size=10000;
 		int ram=2048;
 		long bw=10000;

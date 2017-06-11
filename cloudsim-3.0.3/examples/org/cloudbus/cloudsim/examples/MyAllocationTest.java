@@ -70,9 +70,9 @@ public class MyAllocationTest {
 		
 		//broker.bindCloudletsToVmsSimple();
 		CloudSim.startSimulation();
+		CloudSim.stopSimulation();
 		
 		List<Cloudlet> newList=broker.getCloudletReceivedList();
-		CloudSim.stopSimulation();
 		printCloudletList(newList);
 		Log.printLine("ExtendedExample finished!");
 	}

@@ -72,7 +72,7 @@ import org.cloudbus.cloudsim.Vm;
 		  double[][] p;//每个节点被选中的概率
 		  p = new double[VMs][tasks];
 		  double alpha = 1.0;
-		  double beta = 2.0;
+		  double beta = 5.0;
 		  double sum = 0;//分母
 		  //计算公式中的分母部分  
 		  for(int i=0; i<VMs; i++){
@@ -115,7 +115,7 @@ import org.cloudbus.cloudsim.Vm;
 	  
 	  
 	public void CalTourLength(){
-		System.out.println();
+//		System.out.println();
 		double[] max;
 		max = new double[VMs];
 		for(int i=0; i<tour.size(); i++){
@@ -124,7 +124,7 @@ import org.cloudbus.cloudsim.Vm;
 		tourLength = max[0];
 		for(int i=0; i<VMs; i++){
 			if(max[i]>tourLength)tourLength = max[i];
-			System.out.println("第"+i+"台虚拟机的执行时间："+max[i]);
+//			System.out.println("第"+i+"台虚拟机的执行时间："+max[i]);
 		}
 		return;
 	}

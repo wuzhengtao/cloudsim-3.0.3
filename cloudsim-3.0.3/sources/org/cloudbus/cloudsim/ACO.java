@@ -65,7 +65,7 @@ public class ACO {
 	 */
 	public void run(int maxgen){
 		for(int runTime=0; runTime<maxgen; runTime++){
-			System.out.println("第"+runTime+"次：");
+//			System.out.println("第"+runTime+"次：");
 			//每只蚂蚁移动的过程
 			for(int i=0; i<antcount; i++){
 				for(int j=1; j<tasks; j++){	
@@ -73,14 +73,14 @@ public class ACO {
 				}
 			}
 			for(int i=0; i<antcount; i++){
-				System.out.println("第"+i+"只蚂蚁");
+//				System.out.println("第"+i+"只蚂蚁");
 				ants.get(i).CalTourLength();
-				System.out.println("第"+i+"只蚂蚁的路程："+ants.get(i).tourLength);
+//				System.out.println("第"+i+"只蚂蚁的路程："+ants.get(i).tourLength);
 				ants.get(i).CalDelta();
 				if(ants.get(i).tourLength<bestLength){  
 					//保留最优路径  
 	                bestLength = ants.get(i).tourLength;  
-	                System.out.println("第"+runTime+"代"+"第"+i+"只蚂蚁发现新的解："+bestLength);   
+//	                System.out.println("第"+runTime+"代"+"第"+i+"只蚂蚁发现新的解："+bestLength);   
 	                for(int j=0;j<tasks;j++){  
 	                	bestTour[j].vm = ants.get(i).tour.get(j).vm;
 	                    bestTour[j].task = ants.get(i).tour.get(j).task;
@@ -124,10 +124,10 @@ public class ACO {
      * 输出程序运行结果 
      */  
     public void ReportResult(){  
-        System.out.println("最优路径长度是"+bestLength);
         for(int j=0; j<tasks; j++)
         {
         	System.out.println(bestTour[j].task+"分配给："+bestTour[j].vm);
         }
+        System.out.println("蚁群算法最优路径长度是"+bestLength);
     }  	
 }
